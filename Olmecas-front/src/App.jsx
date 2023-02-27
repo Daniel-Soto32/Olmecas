@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import React from "react";
+import { Dany } from "./WorkSpaces/Dany";
+import { Esteban } from "./WorkSpaces/Esteban";
+import { Jony } from "./WorkSpaces/Jony";
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
 
   return (
-    <div>
-    <h1>Esteban se la come</h1>
-      <h1>Dani es gei</h1>
-    </div>
-  )
-}
+  <div>
+    <Dany/>
+    <Esteban/>
+    <Jony/>
 
-export default App
+  </div>
+    );
+};
