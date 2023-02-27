@@ -1,11 +1,18 @@
 import { useState } from "react";
 import "./App.css";
 import React from "react";
+import { Dany } from "./WorkSpaces/Dany";
+import { Esteban } from "./WorkSpaces/Esteban";
+import { Jony } from "./WorkSpaces/Jony";
 
 export const App = () => {
-  fetch("https://jsonplaceholder.typicode.com/posts?_limit=10")
-    .then((response) => response.json())
-    .then((data) => console.log(data));
 
-  return <div>Hello world</div>;
+  return (
+  <div>
+    <Dany/>
+    <Esteban/>
+    <Jony/>
+
+  </div>
+    );
 };
