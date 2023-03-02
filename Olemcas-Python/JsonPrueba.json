@@ -1,0 +1,270 @@
+{
+    "data": {
+        "affected_items": [
+            {
+                "os": {
+                    "arch": "x86_64",
+                    "codename": "Jammy Jellyfish",
+                    "major": "22",
+                    "minor": "04",
+                    "name": "Ubuntu",
+                    "platform": "ubuntu",
+                    "uname": "Linux |ip-172-31-32-91 |5.15.0-1028-aws |#32-Ubuntu SMP Mon Jan 9 12:28:07 UTC 2023 |x86_64",
+                    "version": "22.04.1 LTS"
+                },
+                "version": "Wazuh v4.3.10",
+                "id": "000",
+                "lastKeepAlive": "9999-12-31T23:59:59Z",
+                "ip": "127.0.0.1",
+                "status": "active",
+                "dateAdd": "2023-02-27T23:40:01Z",
+                "node_name": "node01",
+                "registerIP": "127.0.0.1",
+                "name": "ip-172-31-32-91",
+                "manager": "ip-172-31-32-91"
+            },
+            {
+                "os": {
+                    "build": "22623",
+                    "major": "10",
+                    "minor": "0",
+                    "name": "Microsoft Windows 11 Pro",
+                    "platform": "windows",
+                    "uname": "Microsoft Windows 11 Pro",
+                    "version": "10.0.22623"
+                },
+                "version": "Wazuh v4.3.10",
+                "id": "001",
+                "lastKeepAlive": "2023-03-01T21:49:23Z",
+                "ip": "192.168.5.29",
+                "status": "active",
+                "dateAdd": "2023-02-27T23:43:13Z",
+                "node_name": "node01",
+                "registerIP": "any",
+                "mergedSum": "4a8724b20dee0124ff9656783c490c4e",
+                "name": "lap-25870",
+                "configSum": "ab73af41699f13fdd81903b5f23d8d00",
+                "manager": "ip-172-31-32-91",
+                "group": [
+                    "default"
+                ]
+            },
+            {
+                "os": {
+                    "build": "22000",
+                    "major": "10",
+                    "minor": "0",
+                    "name": "Microsoft Windows 11 Pro",
+                    "platform": "windows",
+                    "uname": "Microsoft Windows 11 Pro",
+                    "version": "10.0.22000"
+                },
+                "version": "Wazuh v4.3.10",
+                "id": "002",
+                "lastKeepAlive": "2023-03-01T15:51:49Z",
+                "ip": "192.168.1.70",
+                "status": "disconnected",
+                "dateAdd": "2023-02-27T23:44:37Z",
+                "node_name": "node01",
+                "registerIP": "any",
+                "mergedSum": "4a8724b20dee0124ff9656783c490c4e",
+                "name": "ORACLEO-JE5MH74",
+                "configSum": "ab73af41699f13fdd81903b5f23d8d00",
+                "disconnection_time": "2023-03-01T16:05:46Z",
+                "manager": "ip-172-31-32-91",
+                "group": [
+                    "default"
+                ]
+            },
+            {
+                "os": {
+                    "build": "22621",
+                    "major": "10",
+                    "minor": "0",
+                    "name": "Microsoft Windows 11 Pro",
+                    "platform": "windows",
+                    "uname": "Microsoft Windows 11 Pro",
+                    "version": "10.0.22621"
+                },
+                "version": "Wazuh v4.3.10",
+                "id": "003",
+                "lastKeepAlive": "2023-03-01T21:49:27Z",
+                "ip": "192.168.1.67",
+                "status": "active",
+                "dateAdd": "2023-02-27T23:46:28Z",
+                "node_name": "node01",
+                "registerIP": "any",
+                "mergedSum": "4a8724b20dee0124ff9656783c490c4e",
+                "name": "LAPTOP-AGG50N5N",
+                "configSum": "ab73af41699f13fdd81903b5f23d8d00",
+                "manager": "ip-172-31-32-91",
+                "group": [
+                    "default"
+                ]
+            },
+            {
+                "os": {
+                    "build": "19045",
+                    "major": "10",
+                    "minor": "0",
+                    "name": "Microsoft Windows 10 Home Single Language",
+                    "platform": "windows",
+                    "uname": "Microsoft Windows 10 Home Single Language",
+                    "version": "10.0.19045"
+                },
+                "version": "Wazuh v4.3.10",
+                "id": "004",
+                "lastKeepAlive": "2023-03-01T01:00:55Z",
+                "ip": "10.201.111.89",
+                "status": "disconnected",
+                "dateAdd": "2023-02-28T01:26:23Z",
+                "node_name": "node01",
+                "registerIP": "any",
+                "mergedSum": "4a8724b20dee0124ff9656783c490c4e",
+                "name": "DESKTOP-BI20OVG",
+                "configSum": "ab73af41699f13fdd81903b5f23d8d00",
+                "disconnection_time": "2023-03-01T01:15:39Z",
+                "manager": "ip-172-31-32-91",
+                "group": [
+                    "default"
+                ]
+            },
+            {
+                "os": {
+                    "build": "19044",
+                    "major": "10",
+                    "minor": "0",
+                    "name": "Microsoft Windows 10 Home Single Language",
+                    "platform": "windows",
+                    "uname": "Microsoft Windows 10 Home Single Language",
+                    "version": "10.0.19044"
+                },
+                "version": "Wazuh v4.3.10",
+                "id": "005",
+                "lastKeepAlive": "2023-03-01T21:49:23Z",
+                "ip": "192.168.1.85",
+                "status": "active",
+                "dateAdd": "2023-02-28T01:27:19Z",
+                "node_name": "node01",
+                "registerIP": "any",
+                "mergedSum": "4a8724b20dee0124ff9656783c490c4e",
+                "name": "LAPTOP-PJ4R9LUV",
+                "configSum": "ab73af41699f13fdd81903b5f23d8d00",
+                "manager": "ip-172-31-32-91",
+                "group": [
+                    "default"
+                ]
+            },
+            {
+                "os": {
+                    "build": "19044",
+                    "major": "10",
+                    "minor": "0",
+                    "name": "Microsoft Windows 10 Home Single Language",
+                    "platform": "windows",
+                    "uname": "Microsoft Windows 10 Home Single Language",
+                    "version": "10.0.19044"
+                },
+                "version": "Wazuh v4.3.10",
+                "id": "006",
+                "lastKeepAlive": "2023-03-01T21:39:38Z",
+                "ip": "192.168.0.10",
+                "status": "active",
+                "dateAdd": "2023-02-28T01:47:05Z",
+                "node_name": "node01",
+                "registerIP": "any",
+                "mergedSum": "4a8724b20dee0124ff9656783c490c4e",
+                "name": "DESKTOP-SU7V27Q",
+                "configSum": "ab73af41699f13fdd81903b5f23d8d00",
+                "manager": "ip-172-31-32-91",
+                "group": [
+                    "default"
+                ]
+            },
+            {
+                "os": {
+                    "build": "22621",
+                    "major": "10",
+                    "minor": "0",
+                    "name": "Microsoft Windows 11 Pro",
+                    "platform": "windows",
+                    "uname": "Microsoft Windows 11 Pro",
+                    "version": "10.0.22621"
+                },
+                "version": "Wazuh v4.3.10",
+                "id": "008",
+                "lastKeepAlive": "2023-03-01T21:49:20Z",
+                "ip": "192.168.1.4",
+                "status": "active",
+                "dateAdd": "2023-02-28T02:20:30Z",
+                "node_name": "node01",
+                "registerIP": "any",
+                "mergedSum": "4a8724b20dee0124ff9656783c490c4e",
+                "name": "DESKTOP-LBLVJBH",
+                "configSum": "ab73af41699f13fdd81903b5f23d8d00",
+                "manager": "ip-172-31-32-91",
+                "group": [
+                    "default"
+                ]
+            },
+            {
+                "os": {
+                    "build": "19045",
+                    "major": "10",
+                    "minor": "0",
+                    "name": "Microsoft Windows 10 Home Single Language",
+                    "platform": "windows",
+                    "uname": "Microsoft Windows 10 Home Single Language",
+                    "version": "10.0.19045"
+                },
+                "version": "Wazuh v4.3.10",
+                "id": "010",
+                "lastKeepAlive": "2023-03-01T21:49:27Z",
+                "ip": "169.254.98.68",
+                "status": "active",
+                "dateAdd": "2023-02-28T21:18:14Z",
+                "node_name": "node01",
+                "registerIP": "any",
+                "mergedSum": "4a8724b20dee0124ff9656783c490c4e",
+                "name": "DESKTOP-1N2GRAR",
+                "configSum": "ab73af41699f13fdd81903b5f23d8d00",
+                "manager": "ip-172-31-32-91",
+                "group": [
+                    "default"
+                ]
+            },
+            {
+                "os": {
+                    "build": "22621",
+                    "major": "10",
+                    "minor": "0",
+                    "name": "Microsoft Windows 11 Home Single Language",
+                    "platform": "windows",
+                    "uname": "Microsoft Windows 11 Home Single Language",
+                    "version": "10.0.22621"
+                },
+                "version": "Wazuh v4.3.10",
+                "id": "011",
+                "lastKeepAlive": "2023-03-01T07:22:03Z",
+                "ip": "192.168.1.144",
+                "status": "disconnected",
+                "dateAdd": "2023-03-01T04:15:44Z",
+                "node_name": "node01",
+                "registerIP": "any",
+                "mergedSum": "4a8724b20dee0124ff9656783c490c4e",
+                "name": "DESKTOP-OMG5CDD",
+                "configSum": "ab73af41699f13fdd81903b5f23d8d00",
+                "disconnection_time": "2023-03-01T07:35:42Z",
+                "manager": "ip-172-31-32-91",
+                "group": [
+                    "default"
+                ]
+            }
+        ],
+        "total_affected_items": 10,
+        "total_failed_items": 0,
+        "failed_items": []
+    },
+    "message": "All selected agents information was returned",
+    "error": 0
+}
