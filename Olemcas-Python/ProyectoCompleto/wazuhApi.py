@@ -3,7 +3,7 @@ class apiHandler:
     # Configuration
     endpoint = '/agents?select=lastKeepAlive&select=id&status=active'
     protocol = 'https'
-    host = '54.145.241.208'
+    host = '54.159.199.49'
     port = '55000'
     user = 'wazuh-wui'
     password = 'uvVZM6eL1tb.1VELhQ1SxUo7RxUauw+N'
@@ -80,4 +80,4 @@ jsonApi = apiTest.get_agents()
 #print("HIGH:", apiTest.get_vul_by_crit("High"))
 
 ''' Sacar vulnerabilidades por palabra clave con limite default de 10 por agente '''
-#print("Palabra: ",apiTest.get_vul_by_key("Adobe"))
+print("Palabra: ",apiTest.get_vul_by_key("Adobe"))

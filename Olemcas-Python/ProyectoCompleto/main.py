@@ -35,9 +35,7 @@ def menuBar(ventana):
     menubar.add_cascade(label="Ayuda", menu=helpmenu)
 
 def high(listbox):
-    print("Hello world!")
-
-    rangos = ["High","Medium","Critical","Low"]
+    #print("Hello world!")
     #listbox = tk.Listbox(font=fontStyle_Text)
     with open('JsonPrueba.json') as file:
         data = json.load(file)
