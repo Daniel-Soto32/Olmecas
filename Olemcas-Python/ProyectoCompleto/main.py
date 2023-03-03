@@ -23,8 +23,10 @@ import json
 def menuBar(ventana):
     menubar = Menu(ventana)
     ventana.config(menu=menubar)
+
     def close_window():
         ventana.destroy()
+
     filemenu = Menu(menubar, tearoff=0)
     filemenu.add_command(label="Nuevo")
     filemenu.add_command(label="Abrir")
@@ -46,9 +48,8 @@ def menuBar(ventana):
     menubar.add_cascade(label="Editar", menu=editmenu)
     menubar.add_cascade(label="Ayuda", menu=helpmenu)
 
+'''Pruebas de DanyToken.ipynb'''
 def high(listbox):
-    #print("Hello world!")
-    #listbox = tk.Listbox(font=fontStyle_Text)
     with open('JsonPrueba.json') as file:
         data = json.load(file)
         JP = (json.dumps(data, indent=4, sort_keys=True))
@@ -60,4 +61,65 @@ def high(listbox):
             for i in range(len(value))
         )
     )
-    print("Se ejecutó High")
+
+'''Scrolls de proyecto final JoshuaToken copy.ipynb'''
+def scrolls(pantalla, columna):
+    scrollbar = ttk.Scrollbar(orient = tk.VERTICAL, command = pantalla.yview)
+    pantalla.config(yscrollcommand = scrollbar.set)
+    scrollbar.grid(row=5, column = columna, ipady=276)
+
+'''Info a mostrar en la tercer pantalla'''
+def get_Info(pantalla, param_info ):
+    pantalla.configure( state = "normal")
+    pantalla.delete('1.0', tk.END)
+    for i in range(35):
+        pantalla.insert( tk.END, f"Printing {param_info} Agents...{i}\n")
+    pantalla.configure( state = "disabled")
+
+'''Función botón acción sobre agente'''
+def activty_Agent(pantalla, param_accion_agente):
+    pantalla.configure(state="normal")
+    pantalla.delete('1.0', tk.END)
+    pantalla.insert(tk.END, f" {param_accion_agente} Agent...")
+    pantalla.configure( state = "disabled")
+
+'''Función para mostrar las vulneranilidades por nivel de riesgo'''
+def get_Vulnerabilities(pantalla, param_riesgo):
+    pantalla.configure(state = "normal")
+    pantalla.delete('1.0', tk.END)
+    pantalla.insert(tk.END, f"Printing {param_riesgo} vulnerabilities...")
+    pantalla.configure( state = "disabled")
+
+'''Función botón lista agentes'''
+def get_AgentList(pantalla):
+    pantalla.configure(state="normal")
+    pantalla.delete('1.0', tk.END)
+    pantalla.insert(tk.END,"Printing ALL Agents...")
+    pantalla.configure(state="disabled")
+
+'''Función botón TOP 10 vulnerabillidades'''
+def get_T10Agents(pantalla):
+    pantalla.configure(state="normal")
+    pantalla.delete('1.0', tk.END)
+    pantalla.insert(tk.END,"Printing Top 10 vulnerable agents...")
+    pantalla.configure(state="disabled")
+
+'''Función botón TOP 10 vulnerabillidades'''
+def get_T10Vulnerabilities(pantalla1):
+    pantalla1.configure(state="normal")
+    pantalla1.delete('1.0', tk.END)
+    pantalla1.insert(tk.END,"Printing Top 10 Vulnerabilities...")
+    pantalla1.configure(state="disabled")
+
+'''#Función botón buscar vulnerabilidades'''
+def search_Vulnerabilities(pantalla1):
+    pantalla1.configure(state="normal")
+    pantalla1.delete('1.0', tk.END)
+    pantalla1.insert(tk.END,"Searching...")
+    pantalla1.configure(state="disabled")
+
+
+
+
+
+
