@@ -77,7 +77,7 @@ jsonApi = apiTest.get_agents()
 #print(jsonApi["data"]["affected_items"][11])
 
 ''' Sacar el numero total de vulnerabilidades por severidad '''
-print("HIGH:", apiTest.get_vul_by_crit("High"))
+#print("HIGH:", apiTest.get_vul_by_crit("High"))
 
 ''' Sacar vulnerabilidades por palabra clave con limite default de 10 por agente '''
-print("Palabra: ",apiTest.get_vul_by_key("Adobe"))
+#print("Palabra: ",apiTest.get_vul_by_key("Adobe"))

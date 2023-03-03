@@ -10,4 +10,4 @@ from tkinter import *
 import pprint
 from tkinter.ttk import *
 import json
-from wazuhApi import *
+#from wazuhApi import *
