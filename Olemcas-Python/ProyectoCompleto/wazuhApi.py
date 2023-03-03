@@ -1,7 +1,19 @@
-from Librerias import *
+from base64 import b64encode
+import json
+import requests  
+import urllib3
+import os
+import tkinter as tk
+from tkinter import ttk
+import tkinter.font as tkFont
+from tkinter import *
+import pprint
+from tkinter.ttk import *
+import json
 class apiHandler:
     # Configuration
     endpoint = '/agents?select=lastKeepAlive&select=id&status=active'
+
     protocol = 'https'
     host = '54.159.199.49'
     port = '55000'
@@ -80,4 +92,4 @@ jsonApi = apiTest.get_agents()
 #print("HIGH:", apiTest.get_vul_by_crit("High"))
 
 ''' Sacar vulnerabilidades por palabra clave con limite default de 10 por agente '''
-print("Palabra: ",apiTest.get_vul_by_key("Adobe"))
+#print("Palabra: ",apiTest.get_vul_by_key("Adobe"))

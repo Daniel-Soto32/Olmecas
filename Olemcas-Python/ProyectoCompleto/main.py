@@ -1,5 +1,17 @@
-from Librerias import *
 #from wazuhApi import *
+from main import *
+from base64 import b64encode
+import json
+import requests  
+import urllib3
+import os
+import tkinter as tk
+from tkinter import ttk
+import tkinter.font as tkFont
+from tkinter import *
+import pprint
+from tkinter.ttk import *
+import json
 
 ''' Sacar el numero total de vulnerabilidades por severidad '''
 #print(json.dumps(apiTest.get_vul_by_crit("High"), indent=4, sort_keys=True))
@@ -48,4 +60,4 @@ def high(listbox):
             for i in range(len(value))
         )
     )
-    print("good bye :)")
+    print("Se ejecutó High")
