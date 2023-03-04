@@ -1,4 +1,5 @@
 from base64 import b64encode
+import time;
 import requests  
 import urllib3
 import os
@@ -24,6 +25,7 @@ class apiHandler:
     login_url = f"{base_url}/security/user/authenticate"
     basic_auth = f"{user}:{password}".encode()
     
+    ts = None
     headers = {}
     allAgents = None
 
@@ -34,6 +36,9 @@ class apiHandler:
     def get_response(self, url, headers, verify=False):
         
         try:
+            ts_actual = time.time()
+            if(ts_actual - self.ts > 900):
+                self.get_token()
             request_result = requests.get(url, headers=headers, verify=verify)
         
             if request_result.status_code == 200:
@@ -47,6 +52,9 @@ class apiHandler:
     def put_response(self, url, headers, verify=False):
         
         try:
+            ts_actual = time.time()
+            if(ts_actual - self.ts > 900):
+                self.get_token()
             request_result = requests.put(url, headers=headers, verify=verify)
         
             if request_result.status_code == 200:
@@ -60,6 +68,9 @@ class apiHandler:
     def delete_response(self, url, headers, verify=False):
         
         try:
+            ts_actual = time.time()
+            if(ts_actual - self.ts > 900):
+                self.get_token()
             request_result = requests.delete(url, headers=headers, verify=verify)
         
             if request_result.status_code == 200:
@@ -71,7 +82,7 @@ class apiHandler:
             return -1
             
     def get_token(self):
-        
+        self.ts = time.time()
         self.headers = {'Authorization': f'Basic {b64encode(self.basic_auth).decode()}'}
         self.headers['Authorization'] = f'Bearer {self.get_response(self.login_url, self.headers)["data"]["token"]}'
 
@@ -390,10 +401,10 @@ def get_Vulnerabilities(pantalla, param_riesgo, dicc):
     pantalla.configure( state = "disabled")
 
 '''Función botón lista agentes'''
-def get_AgentList(pantalla):
+def get_AgentList(pantalla,palabra):
     pantalla.configure(state="normal")
     pantalla.delete('1.0', tk.END)
-    common = apiTest.get_common_agents("Windows")
+    common = apiTest.get_common_agents(palabra)
     pantalla.insert(tk.END, f"Printing all Agents with Windows\nvulnerabilities in common:\n\n{common}")
     pantalla.configure(state="disabled")
 
