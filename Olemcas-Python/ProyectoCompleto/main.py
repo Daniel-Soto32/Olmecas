@@ -72,7 +72,7 @@ def scrolls(pantalla, columna):
 def get_Info(pantalla, param_info ):
     pantalla.configure( state = "normal")
     pantalla.delete('1.0', tk.END)
-    for i in range(35):
+    for i in range(2000):
         pantalla.insert( tk.END, f"Printing {param_info} Agents...{i}\n")
     pantalla.configure( state = "disabled")
 
