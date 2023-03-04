@@ -117,7 +117,7 @@ class apiHandler:
         response = self.put_response(url, self.headers)['data']
         return response
     
-    def delete_agents(self, agents, status, older_than = '7d'):
+    def delete_agents(self, agents, status="never_connected", older_than = '7d'):
         url = self.base_url + "/agents?agents_list=" + agents + '&status=' + status + '&older_than=' + older_than
         response = self.put_response(url, self.headers)['data']
         return response
@@ -206,14 +206,14 @@ class apiHandler:
             
         
 
-#apiTest = apiHandler()
+apiTest = apiHandler()
 
 ''' Generar tokens '''
-#apiTest.get_token()
+apiTest.get_token()
 #print(apiTest.headers["Authorization"])
 
 ''' Sacar la info de todos los agentes '''
-#jsonApi = apiTest.get_agents()
+jsonApi = apiTest.get_agents()
 #print(jsonApi["data"].keys())
 #print(jsonApi["data"]["total_affected_items"])
 #print(jsonApi["data"]["affected_items"][11])
@@ -222,7 +222,7 @@ class apiHandler:
 #print(apiTest.get_vul_by_crit("High"))
 
 ''' 2) Sacar vulnerabilidades por palabra clave con limite default de 10 por agente '''
-#print(apiTest.get_vul_by_key("Window"))
+#print(apiTest.get_vul_by_key("adobe"))
 
 ''' 3) '''
 #print(apiTest.upgrade_agents('001,002'))
