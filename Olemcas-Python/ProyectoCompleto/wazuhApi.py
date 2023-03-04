@@ -1,17 +1,11 @@
-import json
-from base64 import b64encode
-import requests  # To install requests, use: pip install requests
-import urllib3
-import numpy as np
+
 from main import * 
 class apiHandler:
     
     # Configuration
     endpoint = '/agents?select=lastKeepAlive&select=id&status=active'
-    
     protocol = 'https'
     host = '54.159.199.49'
-    #host = '54.145.241.208'
     port = '55000'
     user = 'wazuh-wui'
     password = 'uvVZM6eL1tb.1VELhQ1SxUo7RxUauw+N'
@@ -40,8 +34,7 @@ class apiHandler:
         except Exception:
             print("ERROR Se detectó una exception en get_response")
             return -1
-        
-            
+               
     def put_response(self, url, headers, verify=False):
         
         try:
@@ -114,9 +107,9 @@ class apiHandler:
         response = self.put_response(url, self.headers)['data']
         return response
     
-    def delete_agents(self, agents, status, older_than = '7d'):
+    def delete_agents(self, agents, status="never_connected", older_than = '7d'):
         url = self.base_url + "/agents?agents_list=" + agents + '&status=' + status + '&older_than=' + older_than
-        response = self.delete_response(url, self.headers)['data']
+        response = self.put_response(url, self.headers)['data']
         return response
     
     ''' Punto 6 '''
@@ -170,7 +163,6 @@ class apiHandler:
         response = self.get_response(url, self.headers)['data']
         return response
     
-    
     '''Extras '''
     def get_sysCollector(self, agent, endpoint):
         url = self.base_url + '/syscollector/' + agent + '/' + endpoint
@@ -197,8 +189,15 @@ jsonApi = apiTest.get_agents()
 
 ''' 3) '''
 #print(apiTest.upgrade_agents('001,002'))
-#print(apiTest.restart_agents('017'))
-#print(apiTest.delete_agents('017', 'never_connected'))
+#print(apiTest.restart_agents('001,002'))
+#STATUS AVAILABLES: "all" "active" "pending" "never_connected" "disconnected"
+#print(apiTest.delete_agents('001,002', "never_connected"))
+
+''' 4) '''
+#print(apiTest.get_common_agents("Windows"))
+
+''' 5) '''
+#print(apiTest.get_top_10_vul())
 
 ''' 6) Sacar el top 10 de agentes con más vulnerabilidades '''
 #print(apiTest.get_top_agents())

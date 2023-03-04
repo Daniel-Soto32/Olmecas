@@ -1,6 +1,5 @@
 import json
 from base64 import b64encode
-
 import requests  # To install requests, use: pip install requests
 import urllib3
 import pandas as pd
@@ -197,15 +196,12 @@ class apiHandler:
         response = self.get_response(url, self.headers)['data']
         return response
     
-    
     '''Extras '''
     def get_sysCollector(self, agent, endpoint):
         url = self.base_url + '/syscollector/' + agent + '/' + endpoint
         response = self.get_response(url, self.headers)['data']
         return response
             
-        
-
 apiTest = apiHandler()
 
 ''' Generar tokens '''
