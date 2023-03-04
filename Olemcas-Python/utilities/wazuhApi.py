@@ -82,7 +82,7 @@ class apiHandler:
         for i in range(1, self.jsonApi["total_affected_items"]):
             url_mid = self.jsonApi["affected_items"][i]["id"]
             url = self.base_url + url_start + url_mid + url_end
-            num_crit = self.get_response(url, self.headers)['severity'].get(severity)
+            num_crit = self.get_response(url, self.headers)['data']['severity'].get(severity)
             if( num_crit is not None):
                 total_vulnerabilities += num_crit
         return total_vulnerabilities
@@ -93,14 +93,14 @@ class apiHandler:
         url_mid = ""
         all_responses = {}
         
-        for i in range(1, self.jsonApi["data"]["total_affected_items"]):
-            url_mid = self.jsonApi["data"]["affected_items"][i]["id"]
+        for i in range(1, self.jsonApi["total_affected_items"]):
+            url_mid = self.jsonApi["affected_items"][i]["id"]
             url = self.base_url + url_start + url_mid + url_end
             
             response = self.get_response(url, self.headers)['data']['affected_items']
             if( len(response) > 0 ):
                 all_responses[url_mid] = {
-                    'device_name': self.jsonApi["data"]["affected_items"][i]["name"],
+                    'device_name': self.jsonApi["affected_items"][i]["name"],
                     'vulnerabilities': response
                     }
             
@@ -124,22 +124,85 @@ class apiHandler:
     
     def get_common_agents(self, keyWord, limite = 100):
         response = self.get_vul_by_key(keyWord, limite)
-        return response.keys()
+        common = []
+        for key in response.keys():
+            common.append( response[key]['device_name'] )
+        return common
                 
     def get_top_10_vul(self):
         all_agents_vul = {}
         agents = self.jsonApi["affected_items"][1:]
         for agent in agents:
-            agent_vul = self.get_vul(agent['id'])
-            for vuls in agent_vul.values():
-                print(vuls)
-                for vul in vuls:
-                    if (vul['cve'] not in all_agents_vul):
-                        all_agents_vul[vul['cve']] = 1
-                    else:
-                        all_agents_vul[vul['cve']] += 1
+            agent_vul = self.get_vul(agent['id'])['affected_items']
+            for vul in agent_vul:
+                if (vul['cve'] not in all_agents_vul):
+                    all_agents_vul[f'{vul["cve"]}'] = 1
+                else:
+                    all_agents_vul[f'{vul["cve"]}'] += 1
         
-        print(all_agents_vul)
+        all_agents_vul_sorted = sorted(all_agents_vul.items(), key=lambda x:x[1], reverse=True)
+        return all_agents_vul_sorted[:10]
+    
+    ''' Punto 6 '''
+    def get_top_agents(self):
+        url_start = "/vulnerability/"
+        url_end = "/summary/severity"
+        url_mid = ""
+        vul_array = []
+        
+        for i in range(1, self.jsonApi["total_affected_items"]):
+            url_mid = self.jsonApi["affected_items"][i]["id"]
+            url = self.base_url + url_start + url_mid + url_end
+            num_vul = self.get_response(url, self.headers)
+            vul_array.append(0)
+            if (num_vul != -1 and bool(num_vul['data']['severity'])):
+                for element in num_vul['data']['severity'].values():
+                    vul_array[i-1] += int(element)
+            
+        vul_array = np.array(vul_array)
+        index = (-vul_array).argsort()
+        top = {}
+        n = 10
+        if(len(self.jsonApi["affected_items"]) <= 10):
+            n = len(self.jsonApi["affected_items"])-1
+        for i in range(n):
+            top[self.jsonApi["affected_items"][index[i] + 1]['id']] = {
+                'name': self.jsonApi["affected_items"][index[i] + 1]['name'], 
+                'num_of_vul': vul_array[index[i]]}
+        return top
+    
+    ''' Punto 7 '''
+    def get_config(self):
+        url = self.base_url + "/manager/configuration"
+        response = self.get_response(url, self.headers)['data']
+        return response
+    
+    def get_logs(self):
+        url = self.base_url + "/manager/logs"
+        response = self.get_response(url, self.headers)['data']
+        return response
+    
+    def get_resume(self):
+        url = self.base_url + "/manager/logs/summary"
+        response = self.get_response(url, self.headers)['data']
+        return response
+    
+    def get_groups(self):
+        url = self.base_url + "/groups"
+        response = self.get_response(url, self.headers)['data']
+        return response
+    
+    def get_tasks_status(self):
+        url = self.base_url + "/tasks/status"
+        response = self.get_response(url, self.headers)['data']
+        return response
+    
+    
+    '''Extras '''
+    def get_sysCollector(self, agent, endpoint):
+        url = self.base_url + '/syscollector/' + agent + '/' + endpoint
+        response = self.get_response(url, self.headers)['data']
+        return response
             
         
 
@@ -165,16 +228,32 @@ jsonApi = apiTest.get_agents()
 #print(apiTest.upgrade_agents('001,002'))
 #print(apiTest.restart_agents('001,002'))
 #STATUS AVAILABLES: "all" "active" "pending" "never_connected" "disconnected"
-#print(apiTest.delete_agents('001,002', "disconnected))
+#print(apiTest.delete_agents('001,002', "never_connected"))
 
 ''' 4) '''
 #print(apiTest.get_common_agents("Windows"))
 
 ''' 5) '''
-print(apiTest.get_top_10_vul())
+#print(apiTest.get_top_10_vul())
 
-''' 6) '''
+''' 6) Sacar el top 10 de agentes con más vulnerabilidades '''
+#print(apiTest.get_top_agents())
 
-''' 7) '''
+''' 7) Mostrar el estado del servidor de Wazuh '''
+#print(apiTest.get_config())
+#print(apiTest.get_logs())
+#print(apiTest.get_resume())
+#print(apiTest.get_groups())
+#print(apiTest.get_tasks_status())
 
-''' 8) '''
+
+''' Extras ''' 
+#print(apiTest.get_sysCollector('016', 'hardware'))
+#print(apiTest.get_sysCollector('016', 'hotfixes'))
+#print(apiTest.get_sysCollector('016', 'netaddr'))
+#print(apiTest.get_sysCollector('016', 'netiface'))
+#print(apiTest.get_sysCollector('016', 'netproto'))
+#print(apiTest.get_sysCollector('016', 'os'))
+#print(apiTest.get_sysCollector('016', 'packages'))
+#print(apiTest.get_sysCollector('016', 'ports'))
+#print(apiTest.get_sysCollector('016', 'processes'))
