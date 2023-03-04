@@ -206,14 +206,14 @@ class apiHandler:
             
         
 
-apiTest = apiHandler()
+#apiTest = apiHandler()
 
 ''' Generar tokens '''
-apiTest.get_token()
+#apiTest.get_token()
 #print(apiTest.headers["Authorization"])
 
 ''' Sacar la info de todos los agentes '''
-jsonApi = apiTest.get_agents()
+#jsonApi = apiTest.get_agents()
 #print(jsonApi["data"].keys())
 #print(jsonApi["data"]["total_affected_items"])
 #print(jsonApi["data"]["affected_items"][11])
