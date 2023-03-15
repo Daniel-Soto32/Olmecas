@@ -15,10 +15,10 @@ class apiHandler:
     # Configuration
     endpoint = '/agents?select=lastKeepAlive&select=id&status=active'
     protocol = 'https'
-    host = '54.159.199.49'
+    host = '' #type host ej. 192.168.0.1
     port = '55000'
     user = 'wazuh-wui'
-    password = 'uvVZM6eL1tb.1VELhQ1SxUo7RxUauw+N'
+    password = '' #type pass
     
     # Variables
     base_url = f"{protocol}://{host}:{port}"
